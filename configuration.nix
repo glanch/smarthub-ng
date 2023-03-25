@@ -67,7 +67,7 @@ let
 
   users.users.christopher = {
     isNormalUser = true;
-    shell = pkgs.zsh;
+#    shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
       sshPubKey
     ];
@@ -114,7 +114,7 @@ let
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.openssh.permitRootLogin = "yes";
+  services.openssh.settings.PermitRootLogin = "yes";
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
