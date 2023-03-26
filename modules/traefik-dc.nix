@@ -79,20 +79,10 @@ in
     systemd.services.traefik-docker-compose-createnetwork = dockerUtils.mkDockerNetworkCreationService dockerCli dockerTraefikNetworkName;
 
     systemd.services.traefik-docker-compose-startstop = dockerUtils.mkDockerStartStopService
-      dockerCli
+      dockerCli # Inject docker cli path
       "Traefik Docker Compose" # Description name 
       composeBaseCmd # Base command for docker compose calls, including docker compose file
       [ "traefik-docker-compose-createnetwork.service" ] # After: network creation
       [ "traefik-docker-compose-createnetwork.service" ]; # Requires: network creation
-    # {
-    #   description = "Start and stop docker compose for Traefik";
-    #   after = [ "network.target" "traefik-docker-compose-createnetwork.service" ];
-    #   wantedBy = [ "multi-user.target" ];
-    #   requires = [ "traefik-docker-compose-createnetwork.service" ];
-    #   script = "${dockerComposeBaseCmd} up";
-    #   serviceConfig = {
-    #     ExecStop = "${dockerComposeBaseCmd} down";
-    #   };
-    # };
   };
 }
