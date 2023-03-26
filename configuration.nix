@@ -134,6 +134,13 @@ let
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 
+  # Enable auto upgrades from current main branch on remote
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:glanch/smarthub-ng";
+    dates = "03:00";
+    allowReboot = true;
+  };
 
   virtualisation.docker.enable = true;
 }
