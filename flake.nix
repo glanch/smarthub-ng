@@ -2,8 +2,9 @@
   inputs.nixpkgs.url = github:NixOS/nixpkgs;
   inputs.home-manager.url = github:nix-community/home-manager;
   inputs.deploy-rs.url = "github:serokell/deploy-rs";
+  inputs.agenix.url = "github:ryantm/agenix";
 
-  outputs = { self, nixpkgs, home-manager, deploy-rs, ... }@attrs: {
+  outputs = { self, nixpkgs, home-manager, deploy-rs, agenix, ... }@attrs: {
     nixosConfigurations."smarthub-ng" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, home-manager, ... }:
+{ config, lib, pkgs, home-manager, agenix, ... }:
 
 let
   sshPubKey = builtins.readFile ./id_rsa.pub;
@@ -10,6 +10,8 @@ let
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/traefik-dc.nix
+      agenix.nixosModules.default
     ];
 
   # Enable flakes
@@ -143,5 +145,10 @@ let
   };
 
   virtualisation.docker.enable = true;
+  services.traefikDC = {
+    enable = true;
+    acmeStaging = false;
+    agenixTraefikEnvFile = ./secrets/traefik-env.age;
+  };
 }
 
