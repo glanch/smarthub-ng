@@ -6,6 +6,6 @@ let
   systems = [ smarthubNg ];
 in
 {
-  "secrets/traefik-env.age".publicKeys = users ++ [ smarthubNg ];
-  "secrets/wgeasy-env.age".publicKeys = users ++ [ smarthubNg ];
+  "secrets/traefik/env.age".publicKeys = users ++ [ smarthubNg ];
+  "secrets/wgeasy/env.age".publicKeys = users ++ [ smarthubNg ];
 }

@@ -13,7 +13,6 @@ services:
       - WG_DEFAULT_ADDRESS=''${WGEASY_WG_DEFAULT_ADDRESS}
       - WG_DEFAULT_DNS=''${WGEASY_WG_DEFAULT_DNS}
     image: weejewel/wg-easy:latest
-    container_name: wg-easy
     volumes:
       - wgeasy_storage:/etc/wireguard
     ports:

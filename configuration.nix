@@ -148,12 +148,12 @@ let
   services.traefikDC = {
     enable = true;
     acmeStaging = false;
-    agenixTraefikEnvFile = ./secrets/traefik-env.age;
+    agenixTraefikEnvFile = ./secrets/wgeasy/env.age;
   };
 
   services.wgeasyDC = {
     enable = true;
-    agenixWgeasyEnvFile = ./secrets/wgeasy-env.age;
+    agenixWgeasyEnvFile = ./secrets/wgeasy/env.age;
   };
 }
 
