@@ -11,6 +11,7 @@ let
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/traefik-dc.nix
+      ./modules/wgeasy-dc.nix
       agenix.nixosModules.default
     ];
 
@@ -148,6 +149,11 @@ let
     enable = true;
     acmeStaging = false;
     agenixTraefikEnvFile = ./secrets/traefik-env.age;
+  };
+
+  services.wgeasyDC = {
+    enable = true;
+    agenixWgeasyEnvFile = ./secrets/wgeasy-env.age;
   };
 }
 
