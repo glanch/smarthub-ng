@@ -21,12 +21,6 @@ jobs:
             dependencies
             automated
       - name: Enable Pull Request Automerge
-        if: steps.cpr.outputs.pull-request-number != 0
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          token: ${{ secrets.PAT }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: squash
+        run: gh pr merge --merge --auto "${{ steps.cpr.outputs.pull-request-number }}"
         env:
-          GH_TOKEN: ${{ github.token }}
-          
+          GH_TOKEN: ${{ secrets.PAT }}
