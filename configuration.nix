@@ -144,7 +144,6 @@ let
     allowReboot = true;
   };
 
-  virtualisation.docker.enable = true;
   services.traefikDC = {
     enable = true;
     acmeStaging = false;
