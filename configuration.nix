@@ -153,6 +153,7 @@ let
 
   services.wgeasyDC = {
     enable = true;
+    provokeError = true;
     agenixWgeasyEnvFile = ./secrets/wgeasy/env.age;
   };
 }
