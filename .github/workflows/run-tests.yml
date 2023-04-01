@@ -2,9 +2,9 @@ name: run-tests-on-pr-or-push
 on:
   workflow_dispatch: # allows manual triggering
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 jobs:
   lockfile:
     runs-on: ubuntu-latest
