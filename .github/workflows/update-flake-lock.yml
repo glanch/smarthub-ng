@@ -20,6 +20,10 @@ jobs:
           pr-labels: | # Labels to be set on the PR
             dependencies
             automated
+<<<<<<< Updated upstream
+=======
+      - run: nix build .#nixosConfigurations.smarthub-ng.config.system.build.toplevel # Build system configuration
+>>>>>>> Stashed changes
       - name: Enable Pull Request Automerge # Automerge
         run: gh pr merge --merge --auto "${{ steps.cpr.outputs.pull-request-number }}"
         env:
