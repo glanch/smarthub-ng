@@ -1,5 +1,5 @@
 {
-  inputs.nixpkgs.url = github:NixOS/nixpkgs;
+  inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
   inputs.home-manager.url = github:nix-community/home-manager;
   inputs.deploy-rs.url = "github:serokell/deploy-rs";
   inputs.agenix.url = "github:ryantm/agenix";
@@ -11,7 +11,7 @@
       modules = [ ./configuration.nix home-manager.nixosModules.home-manager ];
     };
     deploy.nodes.smarthub-ng = {
-      hostname = "smarthub-ng.fritz.box";
+      hostname = "192.168.178.60";
       fastConnection = true;
       profiles = {
         system = {
