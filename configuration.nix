@@ -70,6 +70,7 @@ let
 
   users.users.christopher = {
     isNormalUser = true;
+    hashedPassword = "$y$j9T$k.ofVaYMPiHrZnWvsAWAs1$zmQra6h3w8AENyLIB.3xTVbaGtCd2RTDkMyNjcyZEs7";
 #    shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
       sshPubKey
